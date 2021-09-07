@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Armour Point.pxo-ed2be44c19a2e32aadc22504e4d9b617.stex"
+
+[deps]
+
+source_file="res://UI/Armour Point.pxo"
+dest_files=[ "res://.import/Armour Point.pxo-ed2be44c19a2e32aadc22504e4d9b617.stex" ]
+
+[params]
+

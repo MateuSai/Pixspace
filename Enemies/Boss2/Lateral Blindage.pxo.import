@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Lateral Blindage.pxo-7e6256c86b14d0a28042089c3817146d.stex"
+
+[deps]
+
+source_file="res://Enemies/Boss2/Lateral Blindage.pxo"
+dest_files=[ "res://.import/Lateral Blindage.pxo-7e6256c86b14d0a28042089c3817146d.stex" ]
+
+[params]
+

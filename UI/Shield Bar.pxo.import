@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Shield Bar.pxo-d60526d687fb7dccbee4ca47b65a28c4.stex"
+
+[deps]
+
+source_file="res://UI/Shield Bar.pxo"
+dest_files=[ "res://.import/Shield Bar.pxo-d60526d687fb7dccbee4ca47b65a28c4.stex" ]
+
+[params]
+

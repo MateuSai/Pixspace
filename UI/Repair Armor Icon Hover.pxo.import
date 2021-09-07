@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Repair Armor Icon Hover.pxo-3b1002fde61fae7115193d7c26e930f4.stex"
+
+[deps]
+
+source_file="res://UI/Repair Armor Icon Hover.pxo"
+dest_files=[ "res://.import/Repair Armor Icon Hover.pxo-3b1002fde61fae7115193d7c26e930f4.stex" ]
+
+[params]
+

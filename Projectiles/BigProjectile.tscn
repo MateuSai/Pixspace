@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Projectiles/Projectile.gd" type="Script" id=1]
+[ext_resource path="res://Projectiles/Big Light.pxo" type="Texture" id=2]
+[ext_resource path="res://Projectiles/Big Projectile.pxo" type="Texture" id=3]
+[ext_resource path="res://Particles/BigExplosion.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 2.2871, 2.17957 )
+
+[node name="BigProjectile" type="Area2D"]
+collision_layer = 8
+script = ExtResource( 1 )
+explosion_path = ExtResource( 4 )
+damage = 3
+direction = Vector2( 0, -1 )
+speed = -30
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.776471, 0.329412, 0.329412, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+color = Color( 0.756863, 0.294118, 0.294118, 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

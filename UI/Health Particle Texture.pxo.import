@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Health Particle Texture.pxo-1cf221fab22d5d6ae39121851635ce6c.stex"
+
+[deps]
+
+source_file="res://UI/Health Particle Texture.pxo"
+dest_files=[ "res://.import/Health Particle Texture.pxo-1cf221fab22d5d6ae39121851635ce6c.stex" ]
+
+[params]
+

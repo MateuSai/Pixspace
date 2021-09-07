@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Plasma Projectiles Icon.pxo-cfcb237de4f5ca2fc13eefe96a2a2883.stex"
+
+[deps]
+
+source_file="res://Artifacts/Plasma Projectiles Icon.pxo"
+dest_files=[ "res://.import/Plasma Projectiles Icon.pxo-cfcb237de4f5ca2fc13eefe96a2a2883.stex" ]
+
+[params]
+

@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Middle Blindage.pxo-c542f46673a46bcc7141b865335a3b4c.stex"
+
+[deps]
+
+source_file="res://Enemies/Boss2/Middle Blindage.pxo"
+dest_files=[ "res://.import/Middle Blindage.pxo-c542f46673a46bcc7141b865335a3b4c.stex" ]
+
+[params]
+

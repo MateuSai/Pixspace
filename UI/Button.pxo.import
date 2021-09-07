@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Button.pxo-6ca0fac0c324184559e93b0058403821.stex"
+
+[deps]
+
+source_file="res://UI/Button.pxo"
+dest_files=[ "res://.import/Button.pxo-6ca0fac0c324184559e93b0058403821.stex" ]
+
+[params]
+

@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Big Light.pxo-98427e506638e70fded4d6c0fb9c5df1.stex"
+
+[deps]
+
+source_file="res://Projectiles/Big Light.pxo"
+dest_files=[ "res://.import/Big Light.pxo-98427e506638e70fded4d6c0fb9c5df1.stex" ]
+
+[params]
+

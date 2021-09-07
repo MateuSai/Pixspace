@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Enemy Chaser.pxo-5bebe2c7c168707942f6f1358312424c.stex"
+
+[deps]
+
+source_file="res://Enemies/Chaser/Enemy Chaser.pxo"
+dest_files=[ "res://.import/Enemy Chaser.pxo-5bebe2c7c168707942f6f1358312424c.stex" ]
+
+[params]
+

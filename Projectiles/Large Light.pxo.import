@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Large Light.pxo-0e41f74436256ca47706039c6cee9403.stex"
+
+[deps]
+
+source_file="res://Projectiles/Large Light.pxo"
+dest_files=[ "res://.import/Large Light.pxo-0e41f74436256ca47706039c6cee9403.stex" ]
+
+[params]
+

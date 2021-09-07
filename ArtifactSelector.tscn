@@ -1,0 +1,158 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Spaceship/Spaceship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Particles/VelocityParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ArtifactsExpositor.gd" type="Script" id=3]
+[ext_resource path="res://UI/Repair Armor Icon.pxo" type="Texture" id=4]
+[ext_resource path="res://Space_Stars2.png" type="Texture" id=5]
+[ext_resource path="res://ArtifactSelector.gd" type="Script" id=6]
+[ext_resource path="res://Scrap/Scrap 3.pxo" type="Texture" id=7]
+[ext_resource path="res://Fonts/tinypixel/tinypixel.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://UI/Repair Armor Icon Hover.pxo" type="Texture" id=9]
+[ext_resource path="res://RepairArmor.gd" type="Script" id=10]
+[ext_resource path="res://UI/Health Particle Texture.pxo" type="Texture" id=11]
+[ext_resource path="res://Sounds/RecoverArmor.wav" type="AudioStream" id=12]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float scroll_speed: hint_range(0.0, 1.5);
+
+void fragment() {
+	vec2 shifteduv = UV;
+	shifteduv.y -= TIME * scroll_speed;
+	vec4 color = texture(TEXTURE, shifteduv);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/scroll_speed = 1.5
+
+[sub_resource type="DynamicFont" id=3]
+size = 7
+font_data = ExtResource( 8 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.496296, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 8, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -70, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 5 )
+
+[node name="ArtifactSelector" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 90.0
+margin_bottom = 201.0
+rect_min_size = Vector2( 90, 160 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spaceship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 46.6171, 75.9102 )
+
+[node name="MoveTween" type="Tween" parent="Spaceship"]
+
+[node name="VelocityParticles" parent="." instance=ExtResource( 2 )]
+position = Vector2( 45, 0 )
+
+[node name="ArtifactsExpositor" type="CanvasLayer" parent="."]
+script = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ArtifactsExpositor"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -40.0
+margin_bottom = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArtifactsExpositor/CenterContainer"]
+margin_left = 45.0
+margin_right = 45.0
+
+[node name="FadeTween" type="Tween" parent="ArtifactsExpositor/CenterContainer"]
+
+[node name="MoveTween" type="Tween" parent="ArtifactsExpositor/CenterContainer"]
+
+[node name="RepairArmor" type="VBoxContainer" parent="ArtifactsExpositor"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -24.0
+margin_top = -28.0
+custom_constants/separation = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="ArtifactsExpositor/RepairArmor"]
+margin_right = 24.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 9 )
+expand = true
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArtifactsExpositor/RepairArmor"]
+margin_top = 17.0
+margin_right = 24.0
+margin_bottom = 25.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ArtifactsExpositor/RepairArmor/HBoxContainer"]
+margin_left = 5.0
+margin_right = 15.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 3 )
+text = "20"
+
+[node name="TextureRect" type="TextureRect" parent="ArtifactsExpositor/RepairArmor/HBoxContainer"]
+margin_left = 19.0
+margin_right = 19.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 4
+
+[node name="BuyParticles" type="Particles2D" parent="ArtifactsExpositor/RepairArmor"]
+position = Vector2( 12.5, 14 )
+emitting = false
+amount = 12
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.4
+process_material = SubResource( 6 )
+texture = ExtResource( 11 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="ArtifactsExpositor/RepairArmor"]
+stream = ExtResource( 12 )
+[connection signal="ready" from="." to="ArtifactsExpositor/RepairArmor" method="_on_ArtifactSelector_ready"]
+[connection signal="artifact_collected" from="ArtifactsExpositor" to="." method="_on_ArtifactsExpositor_artifact_collected"]
+[connection signal="artifact_collected" from="ArtifactsExpositor" to="Spaceship" method="_on_ArtifactsExpositor_artifact_collected"]
+[connection signal="tween_completed" from="ArtifactsExpositor/CenterContainer/FadeTween" to="ArtifactsExpositor" method="_on_FadeTween_tween_completed"]
+[connection signal="pressed" from="ArtifactsExpositor/RepairArmor/TextureButton" to="ArtifactsExpositor/RepairArmor" method="_on_TextureButton_pressed"]

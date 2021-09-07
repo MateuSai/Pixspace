@@ -1,0 +1,238 @@
+{
+	"sheets": [
+		{
+			"name": "artifacts",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "name"
+				},
+				{
+					"typeStr": "2",
+					"name": "available",
+					"display": null
+				},
+				{
+					"typeStr": "13",
+					"name": "icon"
+				},
+				{
+					"typeStr": "1",
+					"name": "description",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"name": "DoubleCanon",
+					"icon": "Artifacts/Double Canon Icon.pxo",
+					"description": "-Two canons",
+					"available": true
+				},
+				{
+					"name": "DoubleShoot",
+					"icon": "Artifacts/Double Shoot Icon.pxo",
+					"description": "-2 projectiles for canon\\n-Less damage",
+					"available": true
+				},
+				{
+					"name": "FastShoot",
+					"icon": "Artifacts/Fast Shoot Icon.pxo",
+					"description": "-Increase the fire speed",
+					"available": true
+				},
+				{
+					"name": "FastBullets",
+					"icon": "Artifacts/Fast Bullets Icon.pxo",
+					"description": "-Increase projectile speed",
+					"available": true
+				},
+				{
+					"name": "ReinforcedArmor",
+					"icon": "Artifacts/Reinforced Armor Icon.pxo",
+					"description": "-More health",
+					"available": true
+				},
+				{
+					"name": "ImprovedShield",
+					"icon": "Artifacts/Improved Shield Icon.pxo",
+					"description": "-Increase shield capacity\\n-Slightly increase shield recovery time",
+					"available": true
+				},
+				{
+					"name": "LargeProjectiles",
+					"icon": "Artifacts/Large Projectiles Icon.pxo",
+					"description": "-More damage\\n-More speed",
+					"available": true
+				},
+				{
+					"name": "AutomaticTurret",
+					"icon": "Artifacts/Automatic Turret Icon.pxo",
+					"description": "-Automatic turret",
+					"available": false
+				},
+				{
+					"name": "PlasmaProjectiles",
+					"available": true,
+					"icon": "Artifacts/Plasma Projectiles Icon.pxo",
+					"description": "-Increase damage"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "stages",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "waves"
+				},
+				{
+					"typeStr": "2",
+					"name": "boss_stage",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "has_enemy_ship",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "has_enemy_sniper",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "has_enemy_chaser",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "has_boss1",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "has_boss2"
+				},
+				{
+					"typeStr": "3",
+					"name": "doble_spawn_probability"
+				},
+				{
+					"typeStr": "3",
+					"name": "triple_spawn_probability"
+				}
+			],
+			"lines": [
+				{
+					"doble_spawn_probability": 10,
+					"triple_spawn_probability": 0,
+					"id": "stage_1",
+					"waves": 3,
+					"has_enemy_ship": true,
+					"has_enemy_sniper": false,
+					"has_enemy_chaser": false,
+					"has_boss1": false,
+					"boss_stage": false,
+					"has_boss2": false
+				},
+				{
+					"doble_spawn_probability": 30,
+					"triple_spawn_probability": 5,
+					"id": "stage_2",
+					"waves": 3,
+					"has_enemy_ship": true,
+					"has_enemy_sniper": true,
+					"has_enemy_chaser": false,
+					"has_boss1": false,
+					"boss_stage": false,
+					"has_boss2": false
+				},
+				{
+					"doble_spawn_probability": 50,
+					"triple_spawn_probability": 10,
+					"id": "stage_3",
+					"waves": 4,
+					"has_enemy_ship": true,
+					"has_enemy_sniper": true,
+					"has_enemy_chaser": false,
+					"has_boss1": false,
+					"boss_stage": false,
+					"has_boss2": false
+				},
+				{
+					"id": "stage_4",
+					"waves": 1,
+					"has_enemy_ship": false,
+					"has_enemy_sniper": false,
+					"has_enemy_chaser": false,
+					"doble_spawn_probability": 0,
+					"triple_spawn_probability": 0,
+					"has_boss1": true,
+					"boss_stage": true,
+					"has_boss2": false
+				},
+				{
+					"id": "stage_5",
+					"waves": 4,
+					"boss_stage": false,
+					"has_enemy_ship": true,
+					"has_enemy_sniper": true,
+					"has_enemy_chaser": true,
+					"has_boss1": false,
+					"doble_spawn_probability": 60,
+					"triple_spawn_probability": 15,
+					"has_boss2": false
+				},
+				{
+					"id": "stage_6",
+					"waves": 4,
+					"boss_stage": false,
+					"has_enemy_ship": true,
+					"has_enemy_sniper": true,
+					"has_enemy_chaser": true,
+					"has_boss1": false,
+					"doble_spawn_probability": 80,
+					"triple_spawn_probability": 20,
+					"has_boss2": false
+				},
+				{
+					"id": "stage_7",
+					"waves": 4,
+					"boss_stage": false,
+					"has_enemy_ship": true,
+					"has_enemy_sniper": true,
+					"has_enemy_chaser": true,
+					"has_boss1": false,
+					"doble_spawn_probability": 70,
+					"triple_spawn_probability": 30,
+					"has_boss2": false
+				},
+				{
+					"id": "stage_8",
+					"waves": 1,
+					"boss_stage": true,
+					"has_enemy_ship": false,
+					"has_enemy_sniper": false,
+					"has_enemy_chaser": false,
+					"has_boss1": false,
+					"doble_spawn_probability": 0,
+					"triple_spawn_probability": 0,
+					"has_boss2": true
+				}
+			],
+			"separators": [],
+			"props": {}
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}

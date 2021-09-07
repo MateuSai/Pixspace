@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Automatic Turret Double Canon.pxo-bd1296e54d0dd814a227e48888601cc8.stex"
+
+[deps]
+
+source_file="res://Spaceship/Automatic Turret Double Canon.pxo"
+dest_files=[ "res://.import/Automatic Turret Double Canon.pxo-bd1296e54d0dd814a227e48888601cc8.stex" ]
+
+[params]
+

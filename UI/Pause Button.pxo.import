@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Pause Button.pxo-f75aa00db07bb37ed2e384abb3980630.stex"
+
+[deps]
+
+source_file="res://UI/Pause Button.pxo"
+dest_files=[ "res://.import/Pause Button.pxo-f75aa00db07bb37ed2e384abb3980630.stex" ]
+
+[params]
+

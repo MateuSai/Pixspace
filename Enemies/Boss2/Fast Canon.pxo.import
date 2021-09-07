@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Fast Canon.pxo-bd46d996990d133ddcf17e808272799e.stex"
+
+[deps]
+
+source_file="res://Enemies/Boss2/Fast Canon.pxo"
+dest_files=[ "res://.import/Fast Canon.pxo-bd46d996990d133ddcf17e808272799e.stex" ]
+
+[params]
+

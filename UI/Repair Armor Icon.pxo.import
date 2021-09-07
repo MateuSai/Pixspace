@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Repair Armor Icon.pxo-9a82cfc48d1a705b8136af16a5c598e3.stex"
+
+[deps]
+
+source_file="res://UI/Repair Armor Icon.pxo"
+dest_files=[ "res://.import/Repair Armor Icon.pxo-9a82cfc48d1a705b8136af16a5c598e3.stex" ]
+
+[params]
+

@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Front Blindage.pxo-eeba5ce8a6ed546ce740ac6ecbf4a34c.stex"
+
+[deps]
+
+source_file="res://Enemies/Boss1/Front Blindage.pxo"
+dest_files=[ "res://.import/Front Blindage.pxo-eeba5ce8a6ed546ce740ac6ecbf4a34c.stex" ]
+
+[params]
+

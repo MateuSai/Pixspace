@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Light.pxo-5e7dd308185df15a1b6305b5b1586aef.stex"
+
+[deps]
+
+source_file="res://Projectiles/Light.pxo"
+dest_files=[ "res://.import/Light.pxo-5e7dd308185df15a1b6305b5b1586aef.stex" ]
+
+[params]
+

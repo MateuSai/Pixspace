@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/EnemyShip.pxo-2cf69a694ff6460b7f80eeed8e1eb8f4.stex"
+
+[deps]
+
+source_file="res://Enemies/Ship/EnemyShip.pxo"
+dest_files=[ "res://.import/EnemyShip.pxo-2cf69a694ff6460b7f80eeed8e1eb8f4.stex" ]
+
+[params]
+

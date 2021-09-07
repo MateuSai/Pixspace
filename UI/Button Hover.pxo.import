@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Button Hover.pxo-a15aa7f0d72cf79a64b549c23692997b.stex"
+
+[deps]
+
+source_file="res://UI/Button Hover.pxo"
+dest_files=[ "res://.import/Button Hover.pxo-a15aa7f0d72cf79a64b549c23692997b.stex" ]
+
+[params]
+

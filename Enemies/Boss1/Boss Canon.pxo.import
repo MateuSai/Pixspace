@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Boss Canon.pxo-877d9190811e84ea2a47bcedf2dda13c.stex"
+
+[deps]
+
+source_file="res://Enemies/Boss1/Boss Canon.pxo"
+dest_files=[ "res://.import/Boss Canon.pxo-877d9190811e84ea2a47bcedf2dda13c.stex" ]
+
+[params]
+

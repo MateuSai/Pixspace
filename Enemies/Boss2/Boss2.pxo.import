@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Boss2.pxo-182d0a14dac427bbc071dc24ce66a1f0.stex"
+
+[deps]
+
+source_file="res://Enemies/Boss2/Boss2.pxo"
+dest_files=[ "res://.import/Boss2.pxo-182d0a14dac427bbc071dc24ce66a1f0.stex" ]
+
+[params]
+

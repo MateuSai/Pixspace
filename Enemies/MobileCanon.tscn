@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemies/Boss1/MobileCanon.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Boss1/Boss Canon.pxo" type="Texture" id=2]
+
+[node name="MobileCanon" type="Sprite"]
+position = Vector2( 0, -5 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 1.5 )
+script = ExtResource( 1 )
+
+[node name="LeftCanon" type="Position2D" parent="."]
+position = Vector2( -1.5, 4.5 )
+
+[node name="RightCanon" type="Position2D" parent="."]
+position = Vector2( 1.5, 4.5 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

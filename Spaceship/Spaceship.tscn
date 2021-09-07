@@ -1,0 +1,340 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Spaceship/Spaceship.pxo" type="Texture" id=1]
+[ext_resource path="res://Spaceship/Spaceship.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/Shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://UI/UI.gd" type="Script" id=4]
+[ext_resource path="res://Spaceship/Energy Shield.pxo" type="Texture" id=5]
+[ext_resource path="res://Spaceship/EnergyShield.gd" type="Script" id=6]
+[ext_resource path="res://UI/Shield Bar.pxo" type="Texture" id=7]
+[ext_resource path="res://UI/Shield Bar Progress.pxo" type="Texture" id=8]
+[ext_resource path="res://Spaceship/ScrapCollector.gd" type="Script" id=9]
+[ext_resource path="res://Scrap/Scrap 1.pxo" type="Texture" id=10]
+[ext_resource path="res://Fonts/tinypixel/tinypixel.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://Spaceship/Double Canon.pxo" type="Texture" id=12]
+[ext_resource path="res://Hitbox.gd" type="Script" id=13]
+[ext_resource path="res://Sounds/CollectArtifact.wav" type="AudioStream" id=14]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float curvature : hint_range(-1, 1);
+
+void vertex() {
+	VERTEX.y += VERTEX.x * curvature * 0.2;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/curvature = 0.0
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.177778, 0.585185, 1 )
+colors = PoolColorArray( 0.856689, 0.941158, 0.945313, 1, 0.528687, 0.953125, 0.923282, 1, 0.304688, 0.75, 0.718689, 1, 0.102722, 0.398438, 0.377645, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+max_value = 100.0
+_data = [ Vector2( 0, 0 ), 0.0, 57.3999, 0, 0, Vector2( 0.987342, 100 ), 5.52447, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 124.103 ), 0.0, -497.939, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 30.0
+linear_accel_curve = SubResource( 8 )
+damping = 50.0
+damping_curve = SubResource( 6 )
+scale = 2.0
+scale_random = 0.3
+color_ramp = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 7
+font_data = ExtResource( 11 )
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 7.03405
+
+[sub_resource type="Animation" id=12]
+resource_name = "activate"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.8, 1.8 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.9
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.8, 1.8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 2.49151
+
+[node name="Spaceship" type="KinematicBody2D"]
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
+
+[node name="DoubleCanon" type="Sprite" parent="Sprite"]
+visible = false
+use_parent_material = true
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2( 0.95, 0.95 )
+polygon = PoolVector2Array( 5.34093, 2.76558, 5.31465, 1.13634, 2.42407, -0.230113, 2.39779, -1.83307, -0.0197868, -3.90904, -2.2797, -1.72796, -2.35853, -0.256391, -5.17028, 1.32029, -5.22284, 2.79186, -4.19799, 3.84298, 4.23726, 3.89554 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 13 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PoolVector2Array( 5.34093, 2.76558, 5.31465, 1.13634, 2.42407, -0.230113, 2.39779, -1.83307, -0.0197868, -3.90904, -2.2797, -1.72796, -2.35853, -0.256391, -5.17028, 1.32029, -5.22284, 2.79186, -4.19799, 3.84298, 4.23726, 3.89554 )
+
+[node name="Canons" type="Node2D" parent="."]
+
+[node name="MiddleCanon" type="Position2D" parent="Canons"]
+position = Vector2( 0, -4 )
+
+[node name="LeftCanon" type="Position2D" parent="Canons"]
+position = Vector2( -5, -1 )
+
+[node name="RightCanon" type="Position2D" parent="Canons"]
+position = Vector2( 5, -1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, 3 )
+amount = 25
+lifetime = 0.25
+explosiveness = 0.1
+process_material = SubResource( 9 )
+
+[node name="Tween" type="Tween" parent="Particles2D"]
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+
+[node name="CollectArtifactSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="ArmorPointsContainer" type="HBoxContainer" parent="UI"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 43.0
+margin_bottom = 3.0
+custom_constants/separation = -3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShieldBar" type="TextureProgress" parent="UI"]
+margin_left = 3.0
+margin_top = 18.0
+margin_right = 23.0
+margin_bottom = 23.0
+min_value = 22.0
+max_value = 79.0
+value = 79.0
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 2
+stretch_margin_right = 3
+stretch_margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="UI/ShieldBar"]
+
+[node name="Scrap" type="CenterContainer" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -27.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Scrap"]
+margin_left = 4.0
+margin_top = 5.0
+margin_right = 21.0
+margin_bottom = 13.0
+
+[node name="Label" type="Label" parent="UI/Scrap/HBoxContainer"]
+margin_right = 10.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 10 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/Scrap/HBoxContainer"]
+margin_left = 14.0
+margin_right = 17.0
+margin_bottom = 8.0
+texture = ExtResource( 10 )
+stretch_mode = 6
+
+[node name="EnergyShield" type="Area2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 1.375 )
+collision_mask = 0
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="EnergyShield"]
+modulate = Color( 1, 1, 1, 0.619608 )
+scale = Vector2( 1.8, 1.8 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyShield"]
+shape = SubResource( 11 )
+disabled = true
+
+[node name="RecoverTimer" type="Timer" parent="EnergyShield"]
+wait_time = 5.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnergyShield"]
+anims/activate = SubResource( 12 )
+anims/damage = SubResource( 13 )
+anims/desactivate = SubResource( 14 )
+
+[node name="ScrapCollector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrapCollector"]
+position = Vector2( 0, 1.0625 )
+shape = SubResource( 15 )
+
+[node name="Artifacts" type="Node" parent="."]
+[connection signal="hp_changed" from="." to="EnergyShield" method="_on_Spaceship_hp_changed"]
+[connection signal="hp_changed" from="." to="UI" method="_on_Spaceship_hp_changed"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="max_shield_points_changed" from="EnergyShield" to="UI" method="_on_EnergyShield_max_shield_points_changed"]
+[connection signal="recovering_speed_changed" from="EnergyShield" to="UI" method="_on_EnergyShield_recovering_speed_changed"]
+[connection signal="shield_points_changed" from="EnergyShield" to="UI" method="_on_EnergyShield_shield_points_changed"]
+[connection signal="timeout" from="EnergyShield/RecoverTimer" to="EnergyShield" method="_on_RecoverTimer_timeout"]
+[connection signal="body_entered" from="ScrapCollector" to="ScrapCollector" method="_on_ScrapCollector_body_entered"]
+[connection signal="scrap_collected" from="ScrapCollector" to="UI" method="_on_ScrapCollector_scrap_collected"]

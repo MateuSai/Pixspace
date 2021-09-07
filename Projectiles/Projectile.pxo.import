@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Projectile.pxo-79fae6db442ab5aaffae8bc21f928d63.stex"
+
+[deps]
+
+source_file="res://Projectiles/Projectile.pxo"
+dest_files=[ "res://.import/Projectile.pxo-79fae6db442ab5aaffae8bc21f928d63.stex" ]
+
+[params]
+

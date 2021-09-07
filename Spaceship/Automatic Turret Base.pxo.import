@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Automatic Turret Base.pxo-ee062e015242e2116012c569b55f40a5.stex"
+
+[deps]
+
+source_file="res://Spaceship/Automatic Turret Base.pxo"
+dest_files=[ "res://.import/Automatic Turret Base.pxo-ee062e015242e2116012c569b55f40a5.stex" ]
+
+[params]
+

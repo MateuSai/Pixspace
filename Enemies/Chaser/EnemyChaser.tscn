@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Enemies/Chaser/Enemy Chaser.pxo" type="Texture" id=1]
+[ext_resource path="res://Enemies/Chaser/EnemyChaser.gd" type="Script" id=2]
+[ext_resource path="res://Projectiles/ChaserWaveProjectile.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform float curvature : hint_range(-1, 1);
+
+void vertex() {
+	VERTEX.y += VERTEX.x * curvature * 0.15;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/curvature = 0.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.12927, 7.44762 )
+
+[node name="EnemyChaser" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+projectile_path = ExtResource( 3 )
+hp = 5
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 3 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Canons" type="Node2D" parent="."]
+
+[node name="LeftCanon" type="Position2D" parent="Canons"]
+position = Vector2( -1.5, 7 )
+
+[node name="RightCanon" type="Position2D" parent="Canons"]
+position = Vector2( 1.5, 7 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

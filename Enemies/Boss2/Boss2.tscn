@@ -1,0 +1,168 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Enemies/Boss2/Boss2.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Boss2/Boss2.pxo" type="Texture" id=2]
+[ext_resource path="res://flash.tres" type="Animation" id=3]
+[ext_resource path="res://FlashShader.shader" type="Shader" id=4]
+[ext_resource path="res://Enemies/MobileCanon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Blindage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Boss2/Middle Blindage.pxo" type="Texture" id=7]
+[ext_resource path="res://Enemies/Boss2/Lateral Blindage.pxo" type="Texture" id=8]
+[ext_resource path="res://Enemies/Boss2/Fast Canon.pxo" type="Texture" id=9]
+[ext_resource path="res://Enemies/Boss2/FastTurret.gd" type="Script" id=10]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 45.4662, 7.08075 )
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.711111, 1 )
+colors = PoolColorArray( 0.921569, 0.945098, 0.239216, 1, 0.921569, 0.945098, 0.239216, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 1.5, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 10.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.7
+color_ramp = SubResource( 8 )
+
+[node name="Boss2" type="KinematicBody2D"]
+z_index = 1
+collision_layer = 32
+collision_mask = 0
+script = ExtResource( 1 )
+hp = 500
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 2 )
+
+[node name="Hangars" type="Node2D" parent="."]
+
+[node name="LeftHangar" type="Position2D" parent="Hangars"]
+position = Vector2( -31, 4 )
+
+[node name="RightHangar" type="Position2D" parent="Hangars"]
+position = Vector2( 31, 4 )
+
+[node name="DeployTimer" type="Timer" parent="Hangars"]
+wait_time = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -1.14905 )
+shape = SubResource( 1 )
+
+[node name="MoveTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/flash = ExtResource( 3 )
+
+[node name="Armor" type="Node2D" parent="."]
+
+[node name="LeftFrontBlindage" parent="Armor" instance=ExtResource( 6 )]
+hp = 80
+
+[node name="Sprite" parent="Armor/LeftFrontBlindage" index="0"]
+material = SubResource( 4 )
+position = Vector2( -42, 6.5 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" parent="Armor/LeftFrontBlindage" index="1"]
+polygon = PoolVector2Array( -44.8819, 5.65551, -40.3819, 5.90551, -39.3194, 4.96801, -39.3819, 7.15551, -40.3194, 8.28051, -44.7569, 8.21801 )
+
+[node name="MiddleFrontBlindage" parent="Armor" instance=ExtResource( 6 )]
+hp = 100
+
+[node name="Sprite" parent="Armor/MiddleFrontBlindage" index="0"]
+material = SubResource( 3 )
+position = Vector2( 0, 7.5 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" parent="Armor/MiddleFrontBlindage" index="1"]
+polygon = PoolVector2Array( -22.6944, 5.90551, -4.38186, 5.96801, -3.38186, 6.90551, 3.36814, 7.03051, 4.68064, 6.09301, 22.3681, 5.90551, 22.3681, 7.84301, 4.68064, 7.65551, 3.36814, 8.90551, -3.44436, 8.96801, -4.63186, 7.96801, -22.8194, 8.09301 )
+
+[node name="RightFrontBlindage" parent="Armor" instance=ExtResource( 6 )]
+hp = 80
+
+[node name="Sprite" parent="Armor/RightFrontBlindage" index="0"]
+material = SubResource( 5 )
+position = Vector2( 42, 6.5 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="CollisionPolygon2D" parent="Armor/RightFrontBlindage" index="1"]
+polygon = PoolVector2Array( 39.2974, 4.94946, 40.7349, 5.82446, 44.7349, 5.88696, 44.7349, 8.19946, 40.2349, 8.19946, 39.1099, 7.19946 )
+
+[node name="LeftMobileCanon" parent="." instance=ExtResource( 5 )]
+position = Vector2( -21, -0.5 )
+projectile_speed = 70
+
+[node name="RightMobileCanon" parent="." instance=ExtResource( 5 )]
+position = Vector2( 21, -0.5 )
+projectile_speed = 70
+
+[node name="FastTurret" type="Sprite" parent="."]
+position = Vector2( 0, 0.5 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 2 )
+script = ExtResource( 10 )
+projectile_speed = 300
+
+[node name="Canon" type="Position2D" parent="FastTurret"]
+position = Vector2( 0, 8 )
+
+[node name="ChargeParticles" type="Particles2D" parent="FastTurret"]
+position = Vector2( 0, 10 )
+amount = 4
+lifetime = 0.2
+process_material = SubResource( 6 )
+
+[node name="ChargeTimer" type="Timer" parent="FastTurret"]
+wait_time = 2.5
+one_shot = true
+
+[node name="ShootDelayTimer" type="Timer" parent="FastTurret"]
+wait_time = 1.5
+one_shot = true
+[connection signal="timeout" from="Hangars/DeployTimer" to="." method="_on_DeployTimer_timeout"]
+[connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]
+[connection signal="timeout" from="FastTurret/ChargeTimer" to="FastTurret" method="_on_ChargeTimer_timeout"]
+[connection signal="timeout" from="FastTurret/ShootDelayTimer" to="FastTurret" method="_on_ShootDelayTimer_timeout"]
+
+[editable path="Armor/LeftFrontBlindage"]
+
+[editable path="Armor/MiddleFrontBlindage"]
+
+[editable path="Armor/RightFrontBlindage"]

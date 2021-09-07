@@ -1,0 +1,13 @@
+[remap]
+
+importer="com.technohacker.pixelorama"
+type="StreamTexture"
+path="res://.import/Enemy Sniper.pxo-a1be76c8f6ec8f9b2d83af976cc8aed8.stex"
+
+[deps]
+
+source_file="res://Enemies/Sniper/Enemy Sniper.pxo"
+dest_files=[ "res://.import/Enemy Sniper.pxo-a1be76c8f6ec8f9b2d83af976cc8aed8.stex" ]
+
+[params]
+
